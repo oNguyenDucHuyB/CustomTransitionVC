@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FadeAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
+final class FadeAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
 
     private let presenting: Bool
 
@@ -19,7 +19,7 @@ class FadeAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromView = transitionContext.view(forKey: .from) else { return }
         guard let toView = transitionContext.view(forKey: .to) else { return }
-
+        
         let container = transitionContext.containerView
         if presenting {
             container.addSubview(toView)

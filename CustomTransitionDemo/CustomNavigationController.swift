@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomNavigationController: UINavigationController {
+final class CustomNavigationController: UINavigationController {
 
     private var interactionController: UIPercentDrivenInteractiveTransition?
     private var edgeSwipeGestureRecognizer: UIScreenEdgePanGestureRecognizer?
@@ -25,7 +25,7 @@ class CustomNavigationController: UINavigationController {
 
     @objc func handleSwipe(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
         let percent = gestureRecognizer.translation(in: gestureRecognizer.view!).x / gestureRecognizer.view!.bounds.size.width
-
+        
         if gestureRecognizer.state == .began {
             interactionController = UIPercentDrivenInteractiveTransition()
             popViewController(animated: true)
@@ -44,10 +44,11 @@ class CustomNavigationController: UINavigationController {
 
 extension CustomNavigationController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+
         if operation == .push {
-            return FadeAnimationController(presenting: true)
+            return PresentAnimationController()
         } else {
-            return FadeAnimationController(presenting: false)
+            return DismissAnimationController()
         }
     }
 
