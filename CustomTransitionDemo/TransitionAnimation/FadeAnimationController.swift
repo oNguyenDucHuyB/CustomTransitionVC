@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FadeAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
+final class FadeAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
 
     private let presenting: Bool
 

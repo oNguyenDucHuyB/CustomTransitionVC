@@ -22,7 +22,7 @@
                                 <rect key="frame" x="162.5" y="318.5" width="50" height="30"/>
                                 <state key="normal" title="Tap me"/>
                                 <connections>
-                                    <segue destination="MLC-vA-An5" kind="show" id="LYb-X8-jfr"/>
+                                    <action selector="handleTapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Chs-yq-A7W"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -42,11 +42,26 @@
         <!--Second-->
         <scene sceneID="3vn-Jg-d83">
             <objects>
-                <viewController title="Second" id="MLC-vA-An5" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController2" title="Second" id="MLC-vA-An5" customClass="ViewController2" customModule="CustomTransitionDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BPI-4x-ryl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFY-UF-sEI">
+                                <rect key="frame" x="160.5" y="328.5" width="54" height="30"/>
+                                <state key="normal" title="Dismiss">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleDismissButton:" destination="MLC-vA-An5" eventType="touchUpInside" id="7kw-WZ-TVh"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XFY-UF-sEI" firstAttribute="centerY" secondItem="mZ4-wh-2c8" secondAttribute="centerY" id="OZf-Wn-gYT"/>
+                            <constraint firstItem="XFY-UF-sEI" firstAttribute="centerX" secondItem="mZ4-wh-2c8" secondAttribute="centerX" id="teh-5D-ZJI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mZ4-wh-2c8"/>
                     </view>
                 </viewController>
@@ -54,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="1230" y="133"/>
         </scene>
-        <!--Custom Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="NHs-8g-ctQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R2S-zW-Hy3" customClass="CustomNavigationController" customModule="CustomTransitionDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R2S-zW-Hy3" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cKO-gU-Xfw">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
