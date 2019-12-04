@@ -46,9 +46,11 @@ extension CustomNavigationController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 
         if operation == .push {
-            return PresentAnimationController()
+//            return PresentAnimationController()
+            return SubviewAnimationController(type: .present)
         } else {
-            return DismissAnimationController()
+//            return DismissAnimationController()
+            return SubviewAnimationController(type: .dismiss)
         }
     }
 

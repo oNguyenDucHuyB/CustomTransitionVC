@@ -14,6 +14,7 @@
 		831AB55F20160C8A0068C2C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 831AB55D20160C8A0068C2C1 /* LaunchScreen.storyboard */; };
 		831AB56720160D1D0068C2C1 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AB56620160D1D0068C2C1 /* CustomNavigationController.swift */; };
 		831AB56920160D450068C2C1 /* FadeAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AB56820160D450068C2C1 /* FadeAnimationController.swift */; };
+		8E0E68A323964003001D3F58 /* SubviewAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0E68A223964003001D3F58 /* SubviewAnimationController.swift */; };
 		8E9952E7234B333B008BBBBC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9952E6234B333B008BBBBC /* DetailViewController.swift */; };
 		8E9952E9234B391B008BBBBC /* DismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9952E8234B391B008BBBBC /* DismissAnimationController.swift */; };
 		8E9952ED234C7777008BBBBC /* PresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9952EC234C7777008BBBBC /* PresentAnimationController.swift */; };
@@ -29,6 +30,7 @@
 		831AB56020160C8A0068C2C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		831AB56620160D1D0068C2C1 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		831AB56820160D450068C2C1 /* FadeAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAnimationController.swift; sourceTree = "<group>"; };
+		8E0E68A223964003001D3F58 /* SubviewAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubviewAnimationController.swift; sourceTree = "<group>"; };
 		8E9952E6234B333B008BBBBC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8E9952E8234B391B008BBBBC /* DismissAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimationController.swift; sourceTree = "<group>"; };
 		8E9952EC234C7777008BBBBC /* PresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAnimationController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				831AB56820160D450068C2C1 /* FadeAnimationController.swift */,
 				8E9952E8234B391B008BBBBC /* DismissAnimationController.swift */,
 				8E9952EC234C7777008BBBBC /* PresentAnimationController.swift */,
+				8E0E68A223964003001D3F58 /* SubviewAnimationController.swift */,
 			);
 			path = AnimationTransition;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E0E68A323964003001D3F58 /* SubviewAnimationController.swift in Sources */,
 				8E9952ED234C7777008BBBBC /* PresentAnimationController.swift in Sources */,
 				831AB56920160D450068C2C1 /* FadeAnimationController.swift in Sources */,
 				831AB56720160D1D0068C2C1 /* CustomNavigationController.swift in Sources */,

@@ -20,3 +20,11 @@ final class ViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+extension ViewController: CustomTransitionOriginator {
+    var fromAnimatedSubviews: [UIView] { return [textField1] }
+}
+
+extension ViewController: CustomTransitionDestination {
+    var toAnimatedSubviews: [UIView] { return [textField1] }
+}
