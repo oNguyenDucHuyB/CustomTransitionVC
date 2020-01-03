@@ -65,8 +65,8 @@ class SubviewAnimationController: NSObject, UIViewControllerAnimatedTransitionin
         let toSnapshots = toVC.toAnimatedSubviews.map { subview -> UIView in
             // Create snapshot
             
-            let snapshot = subview.snapshotView(afterScreenUpdates: true)! // UIImageView(image: subview.snapshot())
-            
+//            let snapshot = subview.snapshotView(afterScreenUpdates: true)! // UIImageView(image: subview.snapshot())
+            let snapshot = subview.snapshotView()!
             // we're putting it in container, so convert original frame into container's coordinate space
             
             snapshot.frame = container.convert(subview.frame, from: subview.superview)
@@ -77,6 +77,14 @@ class SubviewAnimationController: NSObject, UIViewControllerAnimatedTransitionin
         // save the "to" and "from" frames
         
         let frames = zip(fromSnapshots, toSnapshots).map { ($0.frame, $1.frame) }
+        
+        // move the "to" snapshots to where where the "from" views were, but hide them for now
+
+        zip(toSnapshots, frames).forEach { snapshot, frame in
+            snapshot.frame = frame.0
+            snapshot.alpha = 0
+            container.addSubview(snapshot)
+        }
         
         // add "from" snapshots, too, but hide the subviews that we just snapshotted
         // associated textfield so we only see animated snapshots; we'll unhide these
@@ -99,10 +107,14 @@ class SubviewAnimationController: NSObject, UIViewControllerAnimatedTransitionin
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             // animate the snapshots of the textfield
+            zip(toSnapshots, frames).forEach { snapshot, frame in
+                snapshot.frame = frame.1
+                snapshot.alpha = 1
+            }
             
             zip(fromSnapshots, frames).forEach { snapshot, frame in
                 snapshot.frame = frame.1
-                snapshot.alpha = 1
+                snapshot.alpha = 0
             }
             
             // I'm now animating the "to" view into place, but you'd do whatever you want here
@@ -118,7 +130,7 @@ class SubviewAnimationController: NSObject, UIViewControllerAnimatedTransitionin
             // get rid of snapshots and re-show the original labels
             
             fromSnapshots.forEach { $0.removeFromSuperview() }
-            
+            toSnapshots.forEach   { $0.removeFromSuperview() }
             fromVC.fromAnimatedSubviews.forEach { $0.alpha = 1 }
             toVC.toAnimatedSubviews.forEach { $0.alpha = 1 }
             

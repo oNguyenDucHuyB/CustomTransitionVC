@@ -18,6 +18,7 @@
 		8E9952E7234B333B008BBBBC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9952E6234B333B008BBBBC /* DetailViewController.swift */; };
 		8E9952E9234B391B008BBBBC /* DismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9952E8234B391B008BBBBC /* DismissAnimationController.swift */; };
 		8E9952ED234C7777008BBBBC /* PresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9952EC234C7777008BBBBC /* PresentAnimationController.swift */; };
+		8EE19E3923BEDAB100ED4A85 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE19E3823BEDAB100ED4A85 /* UIView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		8E9952E6234B333B008BBBBC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8E9952E8234B391B008BBBBC /* DismissAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimationController.swift; sourceTree = "<group>"; };
 		8E9952EC234C7777008BBBBC /* PresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAnimationController.swift; sourceTree = "<group>"; };
+		8EE19E3823BEDAB100ED4A85 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				8E54B5762355BE53003ADE72 /* App */,
+				8EE19E3723BEDA9B00ED4A85 /* Extensions */,
 				8E54B56F2354533A003ADE72 /* AnimationTransition */,
 				8E54B5722355BD85003ADE72 /* Scenes */,
 				831AB56620160D1D0068C2C1 /* CustomNavigationController.swift */,
@@ -128,6 +131,14 @@
 				831AB55420160C8A0068C2C1 /* AppDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		8EE19E3723BEDA9B00ED4A85 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8EE19E3823BEDAB100ED4A85 /* UIView+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +219,7 @@
 				831AB56720160D1D0068C2C1 /* CustomNavigationController.swift in Sources */,
 				831AB55720160C8A0068C2C1 /* ViewController.swift in Sources */,
 				831AB55520160C8A0068C2C1 /* AppDelegate.swift in Sources */,
+				8EE19E3923BEDAB100ED4A85 /* UIView+.swift in Sources */,
 				8E9952E9234B391B008BBBBC /* DismissAnimationController.swift in Sources */,
 				8E9952E7234B333B008BBBBC /* DetailViewController.swift in Sources */,
 			);
