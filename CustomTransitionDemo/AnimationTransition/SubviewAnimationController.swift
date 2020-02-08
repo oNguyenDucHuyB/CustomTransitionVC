@@ -40,7 +40,6 @@ class SubviewAnimationController: NSObject, UIViewControllerAnimatedTransitionin
         let container = transitionContext.containerView
         
         // add the "to" view to the hierarchy
-        
         if type == .present {
             container.addSubview(toVC.view)
         } else {
@@ -49,14 +48,11 @@ class SubviewAnimationController: NSObject, UIViewControllerAnimatedTransitionin
         toVC.view.layoutIfNeeded()
         
         // Create snapshots of label being animated
-        
         let fromSnapshots = fromVC.fromAnimatedSubviews.map { subview -> UIView in
             // Create snapshot
-            
             let snapshot = subview.snapshotView(afterScreenUpdates: false)!
             
             // We're putting it in container, so convert original frame into container's coordinate space
-            
             snapshot.frame = container.convert(subview.frame, from: subview.superview)
             
             return snapshot
@@ -64,22 +60,18 @@ class SubviewAnimationController: NSObject, UIViewControllerAnimatedTransitionin
         
         let toSnapshots = toVC.toAnimatedSubviews.map { subview -> UIView in
             // Create snapshot
-            
-//            let snapshot = subview.snapshotView(afterScreenUpdates: true)! // UIImageView(image: subview.snapshot())
             let snapshot = subview.snapshotView()!
-            // we're putting it in container, so convert original frame into container's coordinate space
             
+            // we're putting it in container, so convert original frame into container's coordinate space
             snapshot.frame = container.convert(subview.frame, from: subview.superview)
             
             return snapshot
         }
         
         // save the "to" and "from" frames
-        
         let frames = zip(fromSnapshots, toSnapshots).map { ($0.frame, $1.frame) }
         
         // move the "to" snapshots to where where the "from" views were, but hide them for now
-
         zip(toSnapshots, frames).forEach { snapshot, frame in
             snapshot.frame = frame.0
             snapshot.alpha = 0
@@ -89,14 +81,12 @@ class SubviewAnimationController: NSObject, UIViewControllerAnimatedTransitionin
         // add "from" snapshots, too, but hide the subviews that we just snapshotted
         // associated textfield so we only see animated snapshots; we'll unhide these
         // original views when the animation is done.
-        
         fromSnapshots.forEach { container.addSubview($0) }
         fromVC.fromAnimatedSubviews.forEach { $0.alpha = 0 }
         toVC.toAnimatedSubviews.forEach { $0.alpha = 0 }
         
         // I'm going to push the the main view from the right and dim the "from" view a bit,
         // but you'll obviously do whatever you want for the main view, if anything
-
         if type == .present {
             toVC.view.transform = .init(translationX: toVC.view.frame.width, y: 0)
         } else {
@@ -104,7 +94,6 @@ class SubviewAnimationController: NSObject, UIViewControllerAnimatedTransitionin
         }
         
         // do the animation
-        
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             // animate the snapshots of the textfield
             zip(toSnapshots, frames).forEach { snapshot, frame in
@@ -118,7 +107,6 @@ class SubviewAnimationController: NSObject, UIViewControllerAnimatedTransitionin
             }
             
             // I'm now animating the "to" view into place, but you'd do whatever you want here
-
             if self.type == .present {
                 toVC.view.transform = .identity
                 fromVC.view.alpha = 0.5
@@ -128,19 +116,16 @@ class SubviewAnimationController: NSObject, UIViewControllerAnimatedTransitionin
             }
         }, completion: { _ in
             // get rid of snapshots and re-show the original labels
-            
             fromSnapshots.forEach { $0.removeFromSuperview() }
             toSnapshots.forEach   { $0.removeFromSuperview() }
             fromVC.fromAnimatedSubviews.forEach { $0.alpha = 1 }
             toVC.toAnimatedSubviews.forEach { $0.alpha = 1 }
             
             // clean up "to" and "from" views as necessary, in my case, just restore "from" view's alpha
-
             fromVC.view.alpha = 1
             fromVC.view.transform = .identity
 
             // complete the transition
-            
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
     }
